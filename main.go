@@ -54,7 +54,7 @@ func SQLExecute(db *sql.DB) error {
 	}
 
 	// create table movie
-	_, err = db.Exec("CREATE TABLE IF NOT EXISTS movies(id SERIAL PRIMARY KEY, title VARCHAR(255), ReleaseYear INT, genre VARCHAR(255), duration INT, director_id INT)")
+	_, err = db.Exec("CREATE TABLE IF NOT EXISTS movies(id SERIAL PRIMARY KEY, title VARCHAR(255), release_year INT, genre VARCHAR(255), duration INT, director_id INT)")
 	if err != nil {
 		return err
 	}
@@ -110,7 +110,8 @@ func main() {
 
 	actorRepo := repository.NewActorRepo(dbConn)
 	directorRepo := repository.NewDirectorRepo(gormDbConn)
+	movieRepo := repository.NewMovieRepo(gormDbConn)
 
-	mainAPI := api.NewAPI(actorRepo, directorRepo)
+	mainAPI := api.NewAPI(actorRepo, directorRepo, movieRepo)
 	mainAPI.Start()
 }

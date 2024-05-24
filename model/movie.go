@@ -17,18 +17,18 @@ type MovieActor struct {
 
 type MovieActorView struct {
 	ID          int    `json:"id"`
-	MovieID     int    `json:"movie_id"`
+	Title       string `json:"title"`
 	ActorID     int    `json:"actor_id"`
-	Name        string `json:"name"`
+	ActorName   string `json:"actor_name"`
 	Nationality string `json:"nationality"`
 	Age         int    `json:"age"`
 }
 
 type MovieDirectorView struct {
-	ID          int    `json:"id"`
-	MovieID     int    `json:"movie_id"`
-	DirectorID  int    `json:"director_id"`
-	Name        string `json:"name"`
-	Nationality string `json:"nationality"`
-	Age         int    `json:"age"`
+	ID           int    `json:"id"`
+	Title        string `json:"title"`
+	DirectorID   int    `json:"director_id"`
+	DirectorName string `json:"director_name"`
+	Nationality  string `json:"nationality"`
+	Age          int    `json:"age"`
 }
